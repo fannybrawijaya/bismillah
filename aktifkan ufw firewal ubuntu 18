@@ -1,0 +1,3 @@
+ufw allow ssh
+ufw disable
+ufs allow 80
