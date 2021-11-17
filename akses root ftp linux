@@ -1,0 +1,6 @@
+ijin root
+
+<Global>
+RootLogin on
+UseFtpUsers off
+</Global>
