@@ -1,0 +1,12 @@
+bismillah update
+
+ubuntu server
+
+apt update 
+apt upgrade
+
+apt install do-release-upgrade
+apt install update-manager-core
+
+reeboot
+do-release-upgrade
