@@ -1,0 +1,31 @@
+set
+
+int
+ip add
+route
+dns
+firwall -
+ip dhcp
+
+
+##
+NAT
+
+nat - general - cahin : dstnat
+dst add ; ip mk
+prototcol tcp:  dst port :80
+actinon - dst-nat
+to add : ip client
+
+to port :80
+##
+
+
+
+#
+
+www.fannybrawijaya
+
+
+
+rsudwaru2019
