@@ -1,0 +1,35 @@
+linus /vmlinuz-2.6.32-11-pve root=/dev/mapper/pve-root ro quiet init=/bin/bash
+
+# Remount / as Read/Write 
+mount -rw -o remount /
+# Change the root account password with
+passwd
+# Change any other account password with
+passwd username
+# type new password, confirm and hit enter and then reboot.s
+
+
+
+
+Jika sudah masuk pada mode edit, anda bisa cari bagain ini
+
+linux /vmlinuz-2.6.32-11-pve root=/dev/mapper/pve-root ro quiet
+Lalu anda bisa edit seperti berikut
+
+linus /vmlinuz-2.6.32-11-pve root=/dev/mapper/pve-root ro quiet init=/bin/bash
+Jika sudah tekan Ctrl + X lalu tunggu proses berjalan sampai muncul pada mode root yang ada tanda tagar #, kemudian masukan perintah berikut untuk edit password
+
+passwd
+Lalu ganti password dengan kebutuhan anda, dan jangan sampai lupa lagi. Jika sudah menganti password anda bisa restart dengan perintah berikut
+
+
+
+mount -o remount rw /
+
+# Remount / as Read/Write 
+mount -rw -o remount /
+# Change the root account password with
+passwd
+# Change any other account password with
+passwd username
+# type new password, confirm and hit enter and then reboot.
