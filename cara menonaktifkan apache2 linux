@@ -1,0 +1,15 @@
+cara menonaktifkan apache2 linux
+sudo systemctl status apache2
+sudo systemctl is-enabled apache2
+sudo systemctl disable apache2
+sudo systemctl stop apache2
+sudo systemctl mask apache2
+
+
+
+cara mendisable saat boot https
+Next find out if httpd enabled at boot time using the chkconfig command:
+sudo chkconfig --list httpd
+
+sudo systemctl stop httpd
+sudo systemctl mask httpd
