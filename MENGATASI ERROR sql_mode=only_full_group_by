@@ -1,0 +1,19 @@
+Disini saya akan berbagi kendala yang di alami oleh server web service saya, ketika aplikasi tidak bisa menampilkan queri operator perhitugngan, group dll
+
+tested ubuntu 18.06 : sudo nano /etc/mysql/my.cnf
+
+mint: sudo nano /etc/mysql/my.cnf
+
+ubuntu 16 and up: sudo nano /etc/mysql/my.cnf
+
+ubuntu 14-16: /etc/mysql/mysql.conf.d/mysqld.cnf
+
+LANGKAH PERTAMA
+sudo nano /etc/mysql/my.cnf
+
+TAMBAHKAN SCRIPT BERIKUT INI
+
+[mysqld]  
+sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+
+sudo service mysql restart
