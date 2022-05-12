@@ -1,0 +1,9 @@
+lihat dulu aplikasi yang terinstall wine apa saja dengan perintah :
+dpkg -l
+kemudian ketikan satu persatu perintah di bawah sesuai aplikasi bawakan wine yang terdeteksi melalui perintah dpkg  -l
+apt-get --purge remove wine
+apt-get --purge remove wine64
+apt-get --purge remove wine32
+
+wort ith
+www.fannybrawijaya.com
