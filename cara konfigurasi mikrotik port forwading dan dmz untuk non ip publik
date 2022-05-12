@@ -1,0 +1,37 @@
+1. topologi
+modem (zte f609) - mikrotik - swittch - server / komputer dll ( yg mau di onlenkan)
+
+2. modem
+seting demilitarizone (dmz)
+(awal mula punya saya port forwading) *tidak disarankan karena anda akan merubah ip statis satu persatu nanti di mikrotik
+pilih - dmz - klik manual - kunci mac adddress miktrotik
+
+3. mikrotik
+ip - firewall - nat - general - chain dst-nat 
+prorocol 6tcp
+dst port 8080
+ 
+action
+dst nat
+
+ip server (yg mau di onlenkan
+dst port (80)
+
+wort it untuk indihome hsi gamer
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+cara kalau mengunakan ip publik dedicated
+tanpa seting modem, langsung ke mikrotik
+
+
+1. mikrotik
+ip - firwal - nat - general - chain dst-nat 
+prorocol 6tcp
+dst port 8080
+dst addres 36.91.xxx  ( ip publik)
+
+action
+dst nat
+
+ip server 192xxx   (yg mau di onlenkan
+dst port (80)
