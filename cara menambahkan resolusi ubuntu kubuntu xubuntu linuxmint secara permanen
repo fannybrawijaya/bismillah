@@ -1,0 +1,37 @@
+disini saya akan menambahkan resolusi 1366x768
+
+1. xrandr
+akan menampilkan display resolusi 1280 720 dan lain lain
+
+Screen 0: minimum 320 x 200, current 1368 x 768, maximum 16384 x 16384
+VGA-1 connected primary 1368x768+0+0 (normal left inverted right x axis y axis) 0mm x 0mm
+   1024x768      60.00  
+   800x600       60.32    56.25  
+   848x480       60.00  
+   640x480       59.94  
+   1368x768_60.00  59.88* 
+HDMI-1 disconnected (normal left inverted right x axis y axis)
+DP-1 disconnected (normal left inverted right x axis y axis)
+root@annxm:/home/annxm#
+
+pilih setingan yang terhubung dengan pc dan monitor (VGA-1 connected)
+
+2. cvt 1366 768
+akan menampilkan dibawah ini,  ambil di sini nya saja kurung kurawal (Modeline {"1368x768_60.00"   85.25  1368 1440 1576 1784  768 771 781 798 -hsync +vsync  }  )
+
+# 1368x768 59.88 Hz (CVT) hsync: 47.79 kHz; pclk: 85.25 MHz
+Modeline "1368x768_60.00"   85.25  1368 1440 1576 1784  768 771 781 798 -hsync +vsync
+root@annxm:/home/annxm#
+
+
+3. menambahkan ke menu
+root@annxm:/home/annxm# xrandr --newmode "1368x768_60.00"   85.25  1368 1440 1576 1784  768 771 781 798 -hsync +vsync
+root@annxm:/home/annxm# xrandr --addmode VGA-1 "1368x768_60.00"   (disini yang terkoneksi dengan pc dan monitor saya adalah VGA-1)
+
+agar komputer tetap mengingat setingan kita dan hasil resolusinya  permanen 
+harus tambahkan juga di menu sini
+
+$ sudo nano /etc/profile.d/external_monitor_resol.sh
+isikan perintah berikut ini
+xrandr --newmode "1368x768_60.00"   85.25  1368 1440 1576 1784  768 771 781 798 -hsync +vsync
+xrandr --addmode VGA-1 "1368x768_60.00"
