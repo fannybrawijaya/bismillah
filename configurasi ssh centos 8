@@ -1,0 +1,67 @@
+cara konfigurasi ssh centos 8
+
+# systemctl status sshd.service
+â sshd.service - OpenSSH server daemon
+   Loaded: loaded (/usr/lib/systemd/system/sshd.service; enabled; vendor preset: enabled)
+   Active: active (running) since Sat 2020-08-08 17:59:18 PKT; 2s ago
+     Docs: man:sshd(8)
+           man:sshd_config(5)
+ Main PID: 1564 (sshd)
+    Tasks: 1 (limit: 5916)
+   Memory: 1.2M
+   CGroup: /system.slice/sshd.service
+           ââ1564 /usr/sbin/sshd -D -oCiphers=aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,>
+
+Aug 08 17:59:18 centos-8.centlinux.com systemd[1]: Starting OpenSSH server daemon...
+Aug 08 17:59:18 centos-8.centlinux.com sshd[1564]: Server listening on 0.0.0.0 port 22.
+Aug 08 17:59:18 centos-8.centlinux.com sshd[1564]: Server listening on :: port 22.
+Aug 08 17:59:18 centos-8.centlinux.com systemd[1]: Started OpenSSH server daemon.
+
+# echo "Port 2222" >> /etc/ssh/sshd_config
+
+# semanage port -a -t ssh_port_t -p tcp 2222
+
+
+# firewall-cmd --list-all
+public (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: ens33
+  sources:
+  services: cockpit dhcpv6-client ssh
+  ports:
+  protocols:
+  masquerade: no
+  forward-ports:
+  source-ports:
+  icmp-blocks:
+  rich rules:
+  
+  
+  # firewall-cmd --permanent --remove-service=ssh
+success
+# firewall-cmd --permanent --add-port=2222/tcp
+success
+# firewall-cmd --reload
+success
+
+# systemctl restart sshd.service
+
+# systemctl status sshd.service
+â sshd.service - OpenSSH server daemon
+   Loaded: loaded (/usr/lib/systemd/system/sshd.service; enabled; vendor preset: enabled)
+   Active: active (running) since Sat 2020-08-08 18:13:37 PKT; 14s ago
+     Docs: man:sshd(8)
+           man:sshd_config(5)
+ Main PID: 10376 (sshd)
+    Tasks: 1 (limit: 5916)
+   Memory: 1.2M
+   CGroup: /system.slice/sshd.service
+           ââ10376 /usr/sbin/sshd -D -oCiphers=aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc>
+
+Aug 08 18:13:37 centos-8.centlinux.com systemd[1]: Stopped OpenSSH server daemon.
+Aug 08 18:13:37 centos-8.centlinux.com systemd[1]: Starting OpenSSH server daemon...
+Aug 08 18:13:37 centos-8.centlinux.com sshd[10376]: Server listening on 0.0.0.0 port 2222.
+Aug 08 18:13:37 centos-8.centlinux.com sshd[10376]: Server listening on :: port 2222.
+Aug 08 18:13:37 centos-8.centlinux.com systemd[1]: Started OpenSSH server daemon.
+
