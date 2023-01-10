@@ -1,0 +1,58 @@
+seting dasar mikrotik untuk kebutuhan server
+
+/interface bridge
+add dhcp-snooping=yes name=bridge1-local
+/interface ethernet
+set [ find default-name=ether1 ] name=ether1-wan
+set [ find default-name=ether2 ] name=ether2-hotspot
+set [ find default-name=ether3 ] name=ether3-bridge
+set [ find default-name=ether4 ] name=ether4-lan
+/interface wireless security-profiles
+
+
+/ip pool
+add name=dhcp_pool1 ranges=10.4.5.2-10.4.5.254
+add name=dhcp_pool2 ranges=192.168.128.2-192.168.128.6
+
+/interface bridge port
+add bridge=bridge1-local interface=ether3-bridge
+add bridge=bridge1-local interface=ether4-lan
+
+/ip address
+add address=192.168.1.250/24 interface=ether1-wan network=192.168.1.0
+add address=192.168.128.1/29 interface=ether4-lan network=192.168.128.0
+
+/ip dhcp-server network
+add address=10.4.5.0/24 dns-server=8.8.8.8,8.8.4.4 gateway=10.4.5.1
+add address=192.168.128.0/29 dns-server=8.8.8.8,8.8.4.4 gateway=192.168.128.1
+/ip dns
+set servers=8.8.8.8,8.8.4.4
+
+
+/ip firewall filter
+add action=masquerade chain=srcnat
+add action=masquerade chain=srcnat comment="masquerade hotspot network" \
+    src-address=10.4.5.0/24
+
+/ip route
+add distance=1 gateway=192.168.1.1
+
+intinya
+ip address
+bridge
+route
+dns
+ip dhcp server
+
+
+firewall - general - chain = scrnat 
+firewall - action = masquerade 
+firewall nat - general - chain : dstnat
+firewall nat - general - protocol : tcp
+firewall nat - general - dst port : 80
+firewall nat - action - action : dstnat
+firewall nat - action - to addres : ip server lokal
+firewall nat - action - to port : port server lokal
+
+
+pemkab 2023
