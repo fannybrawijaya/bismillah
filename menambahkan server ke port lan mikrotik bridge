@@ -1,0 +1,5 @@
+ini solusi untuk atasi ketika ingin menambahkan server baru, tapi port lan mikrotik hanya 1 yg open, misal lan port 12 mikrotik yg open, dan butuh penambahan server baru di port 8
+solve pada setingan bridge mikrotik
+caranya. 
+klik bridge - add interface eth8(port yg lan nya mau di aktfkan)
+bridge- bridge1-lan (nama bridge)
