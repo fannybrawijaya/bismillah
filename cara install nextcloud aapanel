@@ -1,0 +1,17 @@
+cara install nextcloud aapanel
+install lampp
+download nextcloud.zip  https://nextcloud.com/install/#instructions-server  https://download.nextcloud.com/server/releases/
+copy ke website /www/wwwroot/namaweb/nextcloud.zip
+ekstrak nextcloud.zip
+chmod 777 folder dan file isi nextcloud.zip dengan kepemilikan www
+intsall dengan cara ---->> buka cloud.domain.lan/index.html
+buat username dan password utama nextcloud 
+pilih database mysql/ sqlite
+jangan centang rekomendasi app agar tidak berat
+klik install
+done - silahkan login 
+untuk transfer data uplod dan downlod ke cloud server  pastikan install nextcloud client 
+login dengan akun utama ke  nextcloud client
+upload file
+setting sisi user dan hak akses
+done
