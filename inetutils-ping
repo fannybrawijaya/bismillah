@@ -1,0 +1,2 @@
+not ping ubuntu //////////
+sudo apt update sudo apt install inetutils-ping
